@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NS.Inno.Common.Enums;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,7 +11,7 @@ namespace NS.Inno.Models
         private DateTime _dateFrom;
         private DateTime _dateTo;
         private int _days;
-        private string _status;
+        private StatusVacationRequestEnum _status;
         private string _description;
         private int _year;
         private User _user;
@@ -34,7 +35,7 @@ namespace NS.Inno.Models
             get { return _dateTo; }
             set { _dateTo = value; }
         }
-        public virtual string Status
+        public virtual StatusVacationRequestEnum Status
         {
             get { return _status;}
             set { _status = value; }

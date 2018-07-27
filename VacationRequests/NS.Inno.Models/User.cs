@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NS.Inno.Common.Enums;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,7 +11,7 @@ namespace NS.Inno.Models
         private string _username;
         private string _displayname;
         private bool _active;
-        private string _role;
+        private UserRoleEnum _role;
         private Team _team;
         private DateTime _employmentdate;
 
@@ -34,7 +35,7 @@ namespace NS.Inno.Models
             get { return _active; }
             set { _active = value; }
         }
-        public virtual string Role
+        public virtual UserRoleEnum Role
         {
             get { return _role;}
             set { _role = value; }
