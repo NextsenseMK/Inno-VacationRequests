@@ -8,7 +8,7 @@ namespace NS.Inno.Models
     {
         private int _id;
         private string _name;
-        private List<string> _teamLeaders;
+        private List<User> _teamLeaders;
         private bool _active;
 
         public virtual int Id
@@ -23,7 +23,7 @@ namespace NS.Inno.Models
             set { _name = value; }
         }
 
-        public virtual List<string> TeamLeaders
+        public virtual List<User> TeamLeaders
         {
             get { return _teamLeaders; }
             set { _teamLeaders = value; }

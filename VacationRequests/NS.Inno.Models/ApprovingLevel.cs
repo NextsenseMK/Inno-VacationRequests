@@ -7,12 +7,12 @@ namespace NS.Inno.Models
     public class ApprovingLevel
     {
         private int _id;
-        private string _vacationRequest;
+        private VacationRequest _vacationRequest;
         private int _level;
         private DateTime _createdOn;
         private DateTime _actionOn;
         private string _status;
-        private string _createdBy;
+        private User _createdBy;
 
         public virtual int Id
         {
@@ -20,7 +20,7 @@ namespace NS.Inno.Models
             set { _id = value;  }
         }
 
-        public virtual string VacationRequest
+        public virtual VacationRequest VacationRequest
         {
             get { return _vacationRequest; }
             set { _vacationRequest = value; }
@@ -50,7 +50,7 @@ namespace NS.Inno.Models
             set { _status = value; }
         }
 
-        public virtual string CreatedBy
+        public virtual User CreatedBy
         {
             get { return _createdBy; }
             set { _createdBy = value; }

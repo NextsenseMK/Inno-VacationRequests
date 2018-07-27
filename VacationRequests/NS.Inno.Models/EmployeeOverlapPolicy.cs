@@ -7,8 +7,8 @@ namespace NS.Inno.Models
     public class EmployeeOverlapPolicy
     {
         private int _id;
-        private string _user1;
-        private string _user2;
+        private User _user1;
+        private User _user2;
         private bool _active;
 
         public virtual int Id
@@ -17,13 +17,13 @@ namespace NS.Inno.Models
             set { _id = value; }
         }
 
-        public virtual string User1
+        public virtual User User1
         {
             get { return _user1; }
             set { _user1 = value; }
         }
 
-        public virtual string User2
+        public virtual User User2
         {
             get { return _user2; }
             set { _user2 = value; }
