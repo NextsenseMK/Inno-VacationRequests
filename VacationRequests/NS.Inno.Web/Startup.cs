@@ -21,6 +21,9 @@ namespace NS.Inno.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
+            var connection = @"Server = PEPIM2013-PC;Database = VacationRequests; Trusted_Connection = True;";
+            services.AddDbContext<VacationRequestsContext>(options => options.UseSqlServer(connection));
+
             InitializeDependencyInjection(services);
             services.AddMvc();
         }

@@ -24,7 +24,7 @@ namespace NS.Inno.Repository
         public UnitOfWork()
         {
             var optionsBuilder = new DbContextOptionsBuilder<VacationRequestsContext>();
-            optionsBuilder.UseSqlServer("Server = VLADIMIRN-LT;Database = VacationRequests; Trusted_Connection = True;");
+            optionsBuilder.UseSqlServer("Server = PEPIM2013-PC;Database = VacationRequests; Trusted_Connection = True;");
 
             _context = new VacationRequestsContext(optionsBuilder.Options);
         }
