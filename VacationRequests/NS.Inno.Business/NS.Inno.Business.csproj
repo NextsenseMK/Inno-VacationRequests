@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NS.Inno.Models\NS.Inno.Models.csproj" />
+  </ItemGroup>
+
 </Project>
