@@ -9,5 +9,6 @@ namespace NS.Inno.Business.Interfaces
     {
         User GetTeamLeader(Team team);
         Team GetMyTeam(User user);
+        List<Team> GetAllTeams();
     }
 }

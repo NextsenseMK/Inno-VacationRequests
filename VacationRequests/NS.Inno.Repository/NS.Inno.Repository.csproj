@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\NS.Inno.Data\NS.Inno.Data.csproj" />
     <ProjectReference Include="..\NS.Inno.Models\NS.Inno.Models.csproj" />
-    <ProjectReference Include="..\NS.Inno.Repository\NS.Inno.Repository.csproj" />
   </ItemGroup>
 
 </Project>
