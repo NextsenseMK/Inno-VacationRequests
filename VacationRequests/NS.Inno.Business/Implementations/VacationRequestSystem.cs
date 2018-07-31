@@ -18,7 +18,7 @@ namespace NS.Inno.Business.Implementations
             throw new NotImplementedException();
         }
 
-        public VacationRequest GeVacationRequest()
+        public VacationRequest GeVacationRequest(int id)
         {
             throw new NotImplementedException();
         }

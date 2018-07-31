@@ -25,7 +25,7 @@ namespace NS.Inno.Business.Implementations
             throw new NotImplementedException();
         }
 
-        public User GetUser()
+        public User GetUser(int id)
         {
             using (var scope = new UnitOfWork())
             {

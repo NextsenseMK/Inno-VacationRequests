@@ -10,7 +10,7 @@ namespace NS.Inno.Business.Interfaces
         void CreateUser(User user);
         void Updateuser(User user);
         bool CheckUser(User user);
-        User GetUser();
+        User GetUser(int id);
         List<User> GetAllTeamLeaders();
         List<Team> GetTeamsWhereThisUserIsTeamLead(User user);
     }

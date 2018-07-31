@@ -9,7 +9,7 @@ namespace NS.Inno.Business.Interfaces
     {
         void CreateApprovingLevel(ApprovingLevel approvingLevel);
         void UpdateApprovingLevel(ApprovingLevel approvingLevel);
-        ApprovingLevel GetApprovingLevel();
+        ApprovingLevel GetApprovingLevel(int id);
         List<ApprovingLevel> GetAllApprovingLevels();
     }
 }

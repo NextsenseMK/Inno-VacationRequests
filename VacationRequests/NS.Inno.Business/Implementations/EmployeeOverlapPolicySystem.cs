@@ -18,7 +18,7 @@ namespace NS.Inno.Business.Implementations
             throw new NotImplementedException();
         }
 
-        public EmployeeOverlapPolicy GetEmployeeOverlapPolicy()
+        public EmployeeOverlapPolicy GetEmployeeOverlapPolicy(int id)
         {
             throw new NotImplementedException();
         }
@@ -32,5 +32,6 @@ namespace NS.Inno.Business.Implementations
         {
             throw new NotImplementedException();
         }
+
     }
 }
