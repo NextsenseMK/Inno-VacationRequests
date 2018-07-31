@@ -10,7 +10,7 @@ namespace NS.Inno.Business.Interfaces
     {
         void CreateEmployeeOverlapPolicy(EmployeeOverlapPolicy employeeOverlapPolicy);
         void UpdateEmployeeOverlapPolicy(EmployeeOverlapPolicy employeeOverlapPolicy);
-        EmployeeOverlapPolicy GetEmployeeOverlapPolicy();
+        EmployeeOverlapPolicy GetEmployeeOverlapPolicy(int id);
         List<EmployeeOverlapPolicy> GetAllEmployeeOverlapPolicies();
         void DeleteEmployeeOverlapPolicy(int id);
     }

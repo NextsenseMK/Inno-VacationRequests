@@ -9,7 +9,7 @@ namespace NS.Inno.Business.Interfaces
     {
         void CreateVacationRequest(VacationRequest vacationRequest);
         void UpdateVacationRequest(VacationRequest vacationRequest);
-        VacationRequest GeVacationRequest();
+        VacationRequest GeVacationRequest(int id);
         void DeleteVacationRequest(int id);
     }
 }
