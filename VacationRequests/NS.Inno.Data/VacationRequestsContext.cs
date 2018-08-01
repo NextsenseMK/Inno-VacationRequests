@@ -8,8 +8,7 @@ namespace NS.Inno.Data
 {
     public class VacationRequestsContext : DbContext
     {
-        public VacationRequestsContext(DbContextOptions<VacationRequestsContext> options)
-            : base(options)
+        public VacationRequestsContext(DbContextOptions<VacationRequestsContext> options): base(options)
         { }
 
         public DbSet<ApprovingLevel> ApprovingLevels { get; set; }
