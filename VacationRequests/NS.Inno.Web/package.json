@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0",
+  "name": "asp.net",
+  "private": true,
+  "scripts": {
+    "dev": "webpack --watch --mode development",
+    "prod": "webpack  --mode production"
+  },
+  "devDependencies": {
+    "@angular/common": "^6.1.0",
+    "@angular/compiler": "^6.1.0",
+    "@angular/compiler-cli": "^6.1.0",
+    "@angular/core": "^6.1.0",
+    "@angular/forms": "^6.1.0",
+    "@angular/platform-browser": "^6.1.0",
+    "@angular/platform-browser-dynamic": "^6.1.0",
+    "@angular/router": "^6.1.0",
+    "@ngtools/webpack": "^6.1.1",
+    "@types/core-js": "^2.5.0",
+    "@types/node": "^9.6.9",
+    "angular2-template-loader": "^0.6.2",
+    "core-js": "^2.5.7",
+    "html-loader": "^0.5.5",
+    "rxjs": "^6.2.2",
+    "ts-loader": "^4.4.2",
+    "typescript": "^3.0.1",
+    "webpack": "^4.9.2",
+    "webpack-cli": "^3.1.0",
+    "zone.js": "^0.8.9"
+  }
+}

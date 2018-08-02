@@ -2,19 +2,53 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
+  <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <None Remove="app\src\app.component.ts" />
+    <None Remove="app\src\app.module.ts" />
+    <None Remove="app\src\main.ts" />
+    <None Remove="app\src\models\approvingLevels\IApprovingLevel.ts" />
+    <None Remove="app\src\models\employeeOverlapPolicies\IEmployeeOverlapPolicy.ts" />
+    <None Remove="app\src\models\teams\ITeam.ts" />
+    <None Remove="app\src\models\users\IUser.ts" />
+    <None Remove="app\src\models\vacationDays\IVacationDays.ts" />
+    <None Remove="app\src\models\vacationRequests\IVacationRequest.ts" />
+    <None Remove="app\src\users\user.component.ts" />
+    <None Remove="app\src\users\user.service.ts" />
+    <None Remove="app\src\vendor.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\dist\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\NS.Inno.Business\NS.Inno.Business.csproj" />
     <ProjectReference Include="..\NS.Inno.Data\NS.Inno.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="app\src\app.component.ts" />
+    <TypeScriptCompile Include="app\src\app.module.ts" />
+    <TypeScriptCompile Include="app\src\main.ts" />
+    <TypeScriptCompile Include="app\src\models\approvingLevels\IApprovingLevel.ts" />
+    <TypeScriptCompile Include="app\src\models\employeeOverlapPolicies\IEmployeeOverlapPolicy.ts" />
+    <TypeScriptCompile Include="app\src\models\teams\ITeam.ts" />
+    <TypeScriptCompile Include="app\src\models\users\IUser.ts" />
+    <TypeScriptCompile Include="app\src\models\vacationDays\IVacationDays.ts" />
+    <TypeScriptCompile Include="app\src\models\vacationRequests\IVacationRequest.ts" />
+    <TypeScriptCompile Include="app\src\users\user.component.ts" />
+    <TypeScriptCompile Include="app\src\users\user.service.ts" />
+    <TypeScriptCompile Include="app\src\vendor.ts" />
   </ItemGroup>
 
 </Project>

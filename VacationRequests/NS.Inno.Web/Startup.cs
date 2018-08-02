@@ -52,18 +52,21 @@ namespace NS.Inno.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, IUserSystem userSystem)
         {
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
 
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
-            User user = new User();
-            userSystem.CreateUser(user);
-            var a = userSystem.GetUser(1);
+            //app.Run(async (context) =>
+            //{
+            //    await context.Response.WriteAsync("Hello World!");
+            //});
+            //User user = new User();
+            //userSystem.CreateUser(user);
+            //var a = userSystem.GetUser(1);
         }
 
 
