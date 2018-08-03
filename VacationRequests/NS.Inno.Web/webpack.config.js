@@ -1,5 +1,4 @@
 ﻿var webpack = require('webpack');
-const AngularCompilerPlugin = require('@ngtools/webpack').AngularCompilerPlugin;
 
 
 module.exports = (env, args) => {
@@ -15,7 +14,7 @@ module.exports = (env, args) => {
         },
         module: {
             rules: [
-                { test: /\.ts$/, loader: args.mode == 'production' ? ['@ngtools/webpack', 'angular2-template-loader'] : ['ts-loader', 'angular2-template-loader'] },
+                { test: /\.ts$/,  loader:['ts-loader', 'angular2-template-loader'] },
                 { test: /\.html$/, loader: ['html-loader'] },
                 { test: /\.css$/, loader: ['style-loader', 'css-loader'] }
             ]
@@ -23,12 +22,7 @@ module.exports = (env, args) => {
         resolve: {
             extensions: ['.js', '.ts', '.html', '.css']
         },
-        plugins: args.mode == 'production' ? [
-            new AngularCompilerPlugin({
-                tsConfigPath: './tsconfig.json',
-                entryModule: './app/src/app.module#AppModule',
-                sourceMap: true
-            })] : [],
+        plugins:[],
         optimization: {
             splitChunks: {
                 cacheGroups: {

@@ -3,8 +3,7 @@
   "name": "asp.net",
   "private": true,
   "scripts": {
-    "dev": "webpack --watch --mode development",
-    "prod": "webpack  --mode production"
+    "dev": "webpack --watch"
   },
   "devDependencies": {
     "@angular/common": "^6.1.0",
@@ -15,7 +14,6 @@
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
-    "@ngtools/webpack": "^6.1.1",
     "@types/core-js": "^2.5.0",
     "@types/node": "^9.6.9",
     "angular2-template-loader": "^0.6.2",
