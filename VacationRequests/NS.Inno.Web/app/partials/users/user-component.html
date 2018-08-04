@@ -1,1 +1,25 @@
-﻿<div>Users</div>
+﻿<h2>Users</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Username</th>
+        <th>DisplayName</th>
+        <th>Active</th>
+        <th>Role</th>
+        <th>Team</th>
+        <th>Employment Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users ">
+        <td>{{user.UserName}}</td>
+        <td>{{user.DisplayName}}</td>
+        <td><span *ngIf="user.Active">Yes</span><span *ngIf="!user.Active">No</span></td>
+        <td>{{user.Role | userRoleFilter}}</td>
+        <td>/</td>
+        <td>{{user.EmploymentDate|date:"dd.MM.yyyy"}}</td>
+        
+    </tr>
+    </tbody>
+</table>

@@ -16,7 +16,7 @@ module.exports = (env, args) => {
             rules: [
                 { test: /\.ts$/,  loader:['ts-loader', 'angular2-template-loader'] },
                 { test: /\.html$/, loader: ['html-loader'] },
-                { test: /\.css$/, loader: ['style-loader', 'css-loader'] }
+                { test: /\.css$/, loader: ['style-loader','css-loader'] }
             ]
         },
         resolve: {

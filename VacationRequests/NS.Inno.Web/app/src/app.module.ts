@@ -5,9 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { Routes, RouterModule } from '@angular/router';
 import { UserComponent } from './users/user.component';
+import { TeamComponent } from './teams/team.component';
+import {UserService} from "./users/user.service";
+import { JsonDateFilter, UserRoleFilter } from './common/filters';
 
 const appRoutes: Routes = [
     { path: 'users', component: UserComponent },
+    { path: 'teams', component: TeamComponent },
 
     {
         path: '',
@@ -19,7 +23,7 @@ const appRoutes: Routes = [
 // @NgModule decorator with its metadata
 @NgModule({
     declarations: [
-        AppComponent, UserComponent
+        AppComponent, UserComponent, TeamComponent, JsonDateFilter, UserRoleFilter
     ],
     imports: [
         BrowserModule,
@@ -29,7 +33,7 @@ const appRoutes: Routes = [
             appRoutes, { useHash: true }
         )
     ],
-    providers: [],
+    providers: [UserService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

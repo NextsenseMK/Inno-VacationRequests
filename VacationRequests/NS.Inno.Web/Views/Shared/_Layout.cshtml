@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @{
+        //Ova mora vaka oti IE ne pocituva base tag ako ne e kompleten sose http i slicno
+        var baseHref = Context.Request.Scheme + Uri.SchemeDelimiter + Context.Request.Host  + Url.Content("~");
+
+
+    }
+    <script>
+        if (!window.location.origin) {
+            window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
+        }
+
+        var AppConfig = "";
+        var baseUrl = '@baseHref';
+    </script>
+    <base href="@baseHref" />
+    <title>@ViewBag.Title</title>
+
+    <base href="/">
+</head>
+<body>
+<div>
+    @RenderBody()
+</div>
+<script src="~/dist/commons.js"></script>
+<script src="~/dist/vendor.js"></script>
+<script src="~/dist/app.js"></script>
+</body>
+</html>

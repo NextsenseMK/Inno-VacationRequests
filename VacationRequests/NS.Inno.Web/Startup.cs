@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json.Serialization;
 using NS.Inno.Business.Implementations;
 using NS.Inno.Business.Interfaces;
 using NS.Inno.Common;
@@ -34,7 +35,10 @@ namespace NS.Inno.Web
             services.AddOptions();
 
             InitializeDependencyInjection(services);
-            services.AddMvc();
+           
+            //za da ne vrakja lowercase
+            services.AddMvc().AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
+
 
             IConfigurationBuilder builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
@@ -52,12 +56,17 @@ namespace NS.Inno.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, IUserSystem userSystem)
         {
-            
+            app.UseMvc(m =>
+            {
+                m.MapRoute(
+                    name: "default",
+                    template: "{controller}/{action}/{id?}",
+                    defaults: new { controller = "Home", action = "Index" });
+            });
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseDefaultFiles();
             app.UseStaticFiles();
 
             //app.Run(async (context) =>

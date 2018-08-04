@@ -1,4 +1,5 @@
 ﻿import { IUser } from "../users/IUser";
+import { StatusVacationRequestEnum } from "../../enums/StatusVacationRequestEnum";
 
 export interface IVacationRequest {
          Id:number;
@@ -11,7 +12,10 @@ export interface IVacationRequest {
          CreatedOn: Date;
          ModifiedOn:Date;
          ModifiedBy:IUser;
-         CreatedBy:IUser;
+    CreatedBy: IUser;
+    Status: StatusVacationRequestEnum;
+
+
 }
 
 export class VacationRequest implements IVacationRequest {
@@ -26,6 +30,7 @@ export class VacationRequest implements IVacationRequest {
     ModifiedOn: Date;
     ModifiedBy: IUser;
     CreatedBy: IUser;
+    Status: StatusVacationRequestEnum;
 
     constructor() {
         this.Id = 0;

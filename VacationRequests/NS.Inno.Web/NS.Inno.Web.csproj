@@ -9,6 +9,10 @@
   <ItemGroup>
     <None Remove="app\src\app.component.ts" />
     <None Remove="app\src\app.module.ts" />
+    <None Remove="app\src\common\filters.ts" />
+    <None Remove="app\src\common\globalVariables.ts" />
+    <None Remove="app\src\enums\StatusVacationRequestEnum.ts" />
+    <None Remove="app\src\enums\UserRoleEnum.ts" />
     <None Remove="app\src\main.ts" />
     <None Remove="app\src\models\approvingLevels\IApprovingLevel.ts" />
     <None Remove="app\src\models\employeeOverlapPolicies\IEmployeeOverlapPolicy.ts" />
@@ -16,6 +20,8 @@
     <None Remove="app\src\models\users\IUser.ts" />
     <None Remove="app\src\models\vacationDays\IVacationDays.ts" />
     <None Remove="app\src\models\vacationRequests\IVacationRequest.ts" />
+    <None Remove="app\src\teams\team.component.ts" />
+    <None Remove="app\src\teams\team.service.ts" />
     <None Remove="app\src\users\user.component.ts" />
     <None Remove="app\src\users\user.service.ts" />
     <None Remove="app\src\vendor.ts" />
@@ -39,6 +45,10 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\src\app.component.ts" />
     <TypeScriptCompile Include="app\src\app.module.ts" />
+    <TypeScriptCompile Include="app\src\common\filters.ts" />
+    <TypeScriptCompile Include="app\src\common\globalVariables.ts" />
+    <TypeScriptCompile Include="app\src\enums\StatusVacationRequestEnum.ts" />
+    <TypeScriptCompile Include="app\src\enums\UserRoleEnum.ts" />
     <TypeScriptCompile Include="app\src\main.ts" />
     <TypeScriptCompile Include="app\src\models\approvingLevels\IApprovingLevel.ts" />
     <TypeScriptCompile Include="app\src\models\employeeOverlapPolicies\IEmployeeOverlapPolicy.ts" />
@@ -46,6 +56,8 @@
     <TypeScriptCompile Include="app\src\models\users\IUser.ts" />
     <TypeScriptCompile Include="app\src\models\vacationDays\IVacationDays.ts" />
     <TypeScriptCompile Include="app\src\models\vacationRequests\IVacationRequest.ts" />
+    <TypeScriptCompile Include="app\src\teams\team.service.ts" />
+    <TypeScriptCompile Include="app\src\teams\team.component.ts" />
     <TypeScriptCompile Include="app\src\users\user.component.ts" />
     <TypeScriptCompile Include="app\src\users\user.service.ts" />
     <TypeScriptCompile Include="app\src\vendor.ts" />
