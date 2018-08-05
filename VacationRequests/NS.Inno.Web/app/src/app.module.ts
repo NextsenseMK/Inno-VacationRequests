@@ -8,6 +8,7 @@ import { UserComponent } from './users/user.component';
 import { TeamComponent } from './teams/team.component';
 import {UserService} from "./users/user.service";
 import { JsonDateFilter, UserRoleFilter } from './common/filters';
+import {TeamService} from "./teams/team.service";
 
 const appRoutes: Routes = [
     { path: 'users', component: UserComponent },
@@ -33,7 +34,7 @@ const appRoutes: Routes = [
             appRoutes, { useHash: true }
         )
     ],
-    providers: [UserService],
+    providers: [UserService,TeamService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

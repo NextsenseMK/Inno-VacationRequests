@@ -1,2 +1,24 @@
-﻿<h3>Vacation Requests App</h3>
-<router-outlet></router-outlet>
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2 ">
+            <nav class="navbar bg-light navbar-expand-sm px-0 flex-row flex-nowrap" style="height:100%">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarWEX" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse" id="navbarWEX">
+                    <div class="nav flex-sm-column flex-row">
+
+                        <a href="#" [routerLink]="['/users']" [routerLinkActive]="['active']" class="nav-item nav-link">Users</a>
+                        <a class="nav-item nav-link" [routerLinkActive]="['active']" [routerLink]="['/teams']" href="#">Teams</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="col-sm-10">
+            <h2>Vacation requests app</h2>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+
+

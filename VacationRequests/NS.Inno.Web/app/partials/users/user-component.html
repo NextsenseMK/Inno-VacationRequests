@@ -1,4 +1,4 @@
-﻿<h2>Users</h2>
+﻿<h4>Users</h4>
 
 <table class="table">
     <thead>
@@ -17,7 +17,7 @@
         <td>{{user.DisplayName}}</td>
         <td><span *ngIf="user.Active">Yes</span><span *ngIf="!user.Active">No</span></td>
         <td>{{user.Role | userRoleFilter}}</td>
-        <td>/</td>
+        <td>{{user.Team.Name}}</td>
         <td>{{user.EmploymentDate|date:"dd.MM.yyyy"}}</td>
         
     </tr>
