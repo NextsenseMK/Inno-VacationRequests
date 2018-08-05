@@ -1,0 +1,71 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title">{{title}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form name="profileForm">
+        <div class="form-group">
+           
+                        <div>
+                            <span>Username:</span>
+                            <input type="text" name="username" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="user.UserName" />
+                        </div>
+                        <br />
+                        <div>
+                            <span>Display name:</span>
+                            <input type="text" name="dname" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="user.DisplayName" />
+                        </div>
+                        <br />
+                    
+                            <div>
+                                <div class="label-modal">
+                                    <span>Team:</span>
+                                </div>
+                                <select [compareWith]="compareTeams" [(ngModel)]="user.Team" name="team">
+                                    <option *ngFor="let team of teams" [ngValue]="team"> {{team.Name}} </option>
+                                </select>
+                        </div>
+            <br />
+            <div class="form-group">
+                <div>
+                    <div class="label-modal">
+                        <span>Employment Date:</span>
+                    </div>
+                    <div>
+                        <input type="text" ngbDatepicker #d="ngbDatepicker" [(ngModel)]="user.EmploymentDate"/>
+                        <button (click)="d.toggle()"></button>
+                    </div>
+                </div>
+            </div>
+                        <div class="form-group">
+                            <div>
+                                <div class="label-modal">
+                                    <span>Role:</span>
+                                </div>
+                                <select  [(ngModel)]="user.Role" name="role">
+                                    <option *ngFor="let r of userRoleEnums" [ngValue]="r.Key"> {{r.Value}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br />
+                        
+            <div class="form-group">
+                <div class="label-modal">
+                    <span>Active:</span>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" name="isActive" class="form-check-input" [(ngModel)]="user.Active">
+                </div>
+
+            </div>
+                        
+                   
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="close()">OK</button>
+    <button type="button" class="btn " (click)="cancel()">Cancel</button>
+</div>

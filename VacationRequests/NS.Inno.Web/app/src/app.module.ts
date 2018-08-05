@@ -9,6 +9,8 @@ import { TeamComponent } from './teams/team.component';
 import {UserService} from "./users/user.service";
 import { JsonDateFilter, UserRoleFilter } from './common/filters';
 import {TeamService} from "./teams/team.service";
+import { AddEditDetailsUserComponent } from './users/addEditDetailsUser.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const appRoutes: Routes = [
     { path: 'users', component: UserComponent },
@@ -24,15 +26,17 @@ const appRoutes: Routes = [
 // @NgModule decorator with its metadata
 @NgModule({
     declarations: [
-        AppComponent, UserComponent, TeamComponent, JsonDateFilter, UserRoleFilter
+        AppComponent, UserComponent, TeamComponent, JsonDateFilter, UserRoleFilter,AddEditDetailsUserComponent
     ],
+    entryComponents: [AddEditDetailsUserComponent],
     imports: [
         BrowserModule,
-        FormsModule,
         HttpClientModule,
         RouterModule.forRoot(
             appRoutes, { useHash: true }
-        )
+        ),
+        NgbModule.forRoot(),
+        FormsModule
     ],
     providers: [UserService,TeamService],
     bootstrap: [AppComponent]

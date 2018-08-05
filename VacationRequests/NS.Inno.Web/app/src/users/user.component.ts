@@ -1,6 +1,9 @@
 ﻿import { Component } from '@angular/core';
-import {IUser} from "../models/users/IUser";
+import {IUser,User} from "../models/users/IUser";
 import {UserService} from "./user.service";
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AddEditDetailsUserComponent } from './addEditDetailsUser.component';
+import { AddEditDetailsModeEnum } from '../enums/AddEditDetailsModeEnum';
 
 
 @Component({
@@ -11,7 +14,7 @@ export class UserComponent {
 
     users: IUser[];
 
-    constructor(private userService: UserService) {
+    constructor(private userService: UserService, private modalService: NgbModal) {
         this.getUsers();
     }
 
@@ -20,5 +23,14 @@ export class UserComponent {
             .subscribe((users: IUser[]) => {
                 this.users = users;
             });
+    }
+
+    addUser() {
+        const modalRef = this.modalService.open(AddEditDetailsUserComponent);
+        modalRef.componentInstance.mode = AddEditDetailsModeEnum.Add;
+        modalRef.componentInstance.user = new User();
+        modalRef.result.then((result) => {
+             this.users.push(result.user);
+        });
     }
 }
