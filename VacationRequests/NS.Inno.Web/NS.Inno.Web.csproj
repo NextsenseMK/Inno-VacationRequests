@@ -26,10 +26,13 @@
     <None Remove="app\src\teams\team.service.ts" />
     <None Remove="app\src\users\user.component.ts" />
     <None Remove="app\src\users\user.service.ts" />
+    <None Remove="app\src\vacationDays\vacationDays.service.ts" />
+    <None Remove="app\src\vacationDays\vacationDaysDetails.component.ts" />
     <None Remove="app\src\vendor.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="app\partials\vacationRequests\" />
     <Folder Include="wwwroot\dist\" />
   </ItemGroup>
 
@@ -64,6 +67,8 @@
     <TypeScriptCompile Include="app\src\teams\team.component.ts" />
     <TypeScriptCompile Include="app\src\users\user.component.ts" />
     <TypeScriptCompile Include="app\src\users\user.service.ts" />
+    <TypeScriptCompile Include="app\src\vacationDays\vacationDays.service.ts" />
+    <TypeScriptCompile Include="app\src\vacationDays\vacationDaysDetails.component.ts" />
     <TypeScriptCompile Include="app\src\vendor.ts" />
   </ItemGroup>
 

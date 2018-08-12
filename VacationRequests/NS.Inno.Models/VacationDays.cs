@@ -21,7 +21,7 @@ namespace NS.Inno.Models
             get { return _user; }
             set { _user = value; }
         }
-        public virtual int DisplayName
+        public virtual int UsedDays
         {
             get { return _usedDays; }
             set { _usedDays = value; }

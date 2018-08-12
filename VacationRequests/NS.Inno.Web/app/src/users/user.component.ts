@@ -4,6 +4,8 @@ import {UserService} from "./user.service";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddEditDetailsUserComponent } from './addEditDetailsUser.component';
 import { AddEditDetailsModeEnum } from '../enums/AddEditDetailsModeEnum';
+import { VacationDaysDetailsComponent } from '../vacationDays/vacationDaysDetails.component';
+import { VacationDaysService } from '../vacationDays/vacationDays.service';
 
 
 @Component({
@@ -14,7 +16,7 @@ export class UserComponent {
 
     users: IUser[];
 
-    constructor(private userService: UserService, private modalService: NgbModal) {
+    constructor(private userService: UserService, private modalService: NgbModal, private vacationDaysService:VacationDaysService) {
         this.getUsers();
     }
 
@@ -32,5 +34,15 @@ export class UserComponent {
         modalRef.result.then((result) => {
              this.users.push(result.user);
         });
+    }
+
+    seeUserVacationDays(user: IUser) {
+        this.vacationDaysService.getUserVacationDays(user.Id)
+            .subscribe((result) => {
+                const modalRef = this.modalService.open(VacationDaysDetailsComponent);
+                modalRef.componentInstance.vacationDays = result;
+                },
+                (error) => { });
+       
     }
 }

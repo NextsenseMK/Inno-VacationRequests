@@ -9,6 +9,7 @@
         <th>Role</th>
         <th>Team</th>
         <th>Employment Date</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -19,6 +20,7 @@
         <td>{{user.Role | userRoleFilter}}</td>
         <td>{{user.Team.Name}}</td>
         <td>{{user.EmploymentDate|date:"dd.MM.yyyy"}}</td>
+        <td><button class="btn btn-default" (click)="seeUserVacationDays(user)">See VD</button></td>
         
     </tr>
     </tbody>
