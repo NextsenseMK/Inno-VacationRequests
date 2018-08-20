@@ -1,0 +1,27 @@
+﻿<h4>Users</h4>
+<button class="btn btn-default" (click)="addUser()">Add</button>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Username</th>
+        <th>DisplayName</th>
+        <th>Active</th>
+        <th>Role</th>
+        <th>Team</th>
+        <th>Employment Date</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users ">
+        <td>{{user.UserName}}</td>
+        <td>{{user.DisplayName}}</td>
+        <td><span *ngIf="user.Active">Yes</span><span *ngIf="!user.Active">No</span></td>
+        <td>{{user.Role | userRoleFilter}}</td>
+        <td>{{user.Team.Name}}</td>
+        <td>{{user.EmploymentDate|date:"dd.MM.yyyy"}}</td>
+        <td><button class="btn btn-default" (click)="seeUserVacationDays(user)">See VD</button></td>
+        
+    </tr>
+    </tbody>
+</table>

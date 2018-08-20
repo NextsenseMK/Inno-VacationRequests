@@ -12,6 +12,7 @@ namespace NS.Inno.Web
 {
     public class Program
     {
+        //test from mac
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
