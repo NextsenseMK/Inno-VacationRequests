@@ -34,7 +34,7 @@ namespace NS.Inno.Web
         {
             services.AddOptions();
 
-            InitializeDependencyInjection(services);
+          
            
             //za da ne vrakja lowercase
             services.AddMvc().AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
@@ -49,7 +49,9 @@ namespace NS.Inno.Web
 
             services.AddSingleton(Configuration);
 
-            services.AddDbContext<VacationRequestsContext>(options => options.UseSqlServer("Server = vacationRequests-sql;Database = VacationRequests; Trusted_Connection = True;"));
+            services.AddDbContext<VacationRequestsContext>(options => options.UseSqlServer("Server = VLADIMIRN-LT;Database = VacationRequests; Trusted_Connection = True;"));
+
+            InitializeDependencyInjection(services);
 
         }
 
@@ -81,13 +83,16 @@ namespace NS.Inno.Web
 
         private void InitializeDependencyInjection(IServiceCollection services)
         {
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+
             services.AddTransient<ITeamSystem, TeamSystem>();
             services.AddTransient<IApprovingLevelSystem, ApprovingLevelSystem>();
             services.AddTransient<IEmployeeOverlapPolicySystem, EmployeeOverlapPolicySystem>();
             services.AddTransient<IUserSystem, UserSystem>();
             services.AddTransient<IVacationDaysSystem, VacationDaysSystem>();
             services.AddTransient<IVacationRequestSystem, VacationRequestSystem>();
-            services.AddTransient<IUnitOfWork, UnitOfWork>();
+            
+            services.AddScoped<IRepository<User>, Repository<User>>();
         }
     }
 }

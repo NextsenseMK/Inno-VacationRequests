@@ -6,23 +6,16 @@ using Microsoft.Extensions.Options;
 using NS.Inno.Common;
 using NS.Inno.Data;
 using NS.Inno.Models;
-using NS.Inno.Repository.Repositories;
 
 namespace NS.Inno.Repository
 {
-    public class UnitOfWork : IDisposable, IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
-        private VacationRequestsContext _context = null;
+        private VacationRequestsContext _context { get; }
 
-        private bool disposed = false;
-        private readonly ConfigProvider _configProvider;
-        public UnitOfWork(IOptions<ConfigProvider> configProvider)
+        public UnitOfWork(VacationRequestsContext context)
         {
-            _configProvider = configProvider.Value;
-            var optionsBuilder = new DbContextOptionsBuilder<VacationRequestsContext>();
-            optionsBuilder.UseSqlServer("Server = PEPIM2013-PC;Database = VacationRequests; Trusted_Connection = True;");
-
-            _context = new VacationRequestsContext(optionsBuilder.Options);
+            _context = context;
         }
 
         public void SaveChanges()
@@ -30,29 +23,11 @@ namespace NS.Inno.Repository
             _context.SaveChanges();
         }
 
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!this.disposed)
-            {
-                if (disposing)
-                {
-                    _context.Dispose();
-                }
-            }
-            this.disposed = true;
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        public ApprovingLevelRepository ApprovingLevelRepository { get => new ApprovingLevelRepository(_context); }
-        public EmployeeOverlapPolicyRepository EmployeeOverlapPolicyRepository { get => new EmployeeOverlapPolicyRepository(_context); }
-        public TeamRepository TeamRepository { get => new TeamRepository(_context); }
-        public UserRepository UserRepository { get => new UserRepository(_context); }
-        public VacationDaysRepository VacationDaysRepository { get => new VacationDaysRepository(_context); }
-        public VacationRequestRepository VacationRequestRepository { get => new VacationRequestRepository(_context); }
+        public IRepository<ApprovingLevel> ApprovingLevelRepository => new Repository<ApprovingLevel>(_context);
+        public IRepository<EmployeeOverlapPolicy> EmployeeOverlapPolicyRepository => new Repository<EmployeeOverlapPolicy>(_context);
+        public IRepository<Team> TeamRepository => new Repository<Team>(_context);
+        public IRepository<User> UserRepository => new Repository<User>(_context);
+        public IRepository<VacationDays> VacationDaysRepository => new Repository<VacationDays>(_context);
+        public IRepository<VacationRequest> VacationRequestRepository => new Repository<VacationRequest>(_context);
     }
 }

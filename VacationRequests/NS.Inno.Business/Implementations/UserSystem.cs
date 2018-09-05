@@ -14,42 +14,29 @@ namespace NS.Inno.Business.Implementations
 {
     public class UserSystem : IUserSystem
     {
-        private readonly ConfigProvider _configProvider;
         private readonly IUnitOfWork _unitOfWork;
 
-        public UserSystem(IOptions<ConfigProvider> configProvider, IUnitOfWork unitOfWork)
+        public UserSystem(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            _configProvider = configProvider.Value;
+            //GetUser(1);
+            //CreateUser(new User());
         }
 
         public void CreateUser(User user)
         {
+            _unitOfWork.UserRepository.Insert(user);
+            _unitOfWork.SaveChanges();
 
-            //dummy
-            using (var scope = new TransactionScope())
-            {
-                user = new User();
-               var  user1 = new User();
-
-
-                user.Active = true;
-                user.DisplayName = "Tanja";
-                user.EmploymentDate = DateTime.Now;
-                user.Role = UserRoleEnum.Managment;
-
-                _unitOfWork.UserRepository.Add(user);
-                _unitOfWork.SaveChanges();
-                user1.Active = true;
-                user1.DisplayName = "kiki";
-                user1.EmploymentDate = DateTime.Now;
-                user1.Role = UserRoleEnum.HumanResource;
-
-                _unitOfWork.UserRepository.Add(user1);
-                _unitOfWork.SaveChanges();
-                scope.Complete();
-
-            }
+            //var userForCreate12 = new User
+            //{
+            //    UserName = "UserName33322",
+            //    DisplayName = "DisplayName112",
+            //    EmploymentDate = DateTime.Now,
+            //    Role = UserRoleEnum.Administrator
+            //};
+            //_unitOfWork.UserRepository.Insert(userForCreate12);
+            //_unitOfWork.SaveChanges();
 
         }
 
@@ -65,9 +52,8 @@ namespace NS.Inno.Business.Implementations
 
         public User GetUser(int id)
         {
-
-            var p = _configProvider.ConnectionString;
-            return _unitOfWork.UserRepository.GetAll().FirstOrDefault();
+            var a = _unitOfWork.UserRepository.GetById(id);
+            return a;
 
         }
 

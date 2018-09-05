@@ -31,10 +31,7 @@ namespace NS.Inno.Business.Implementations
 
         public List<Team> GetAllTeams()
         {
-
-            return _unitOfWork.TeamRepository.GetAll().ToList();
-
-
+            return null;
             //var list = scope.ApprovingLevelRepository.GetAll().Join(scope.VacationRequestRepository.GetAll(),
             //    appLevel => appLevel.VacationRequest.Id,
             //    vacRequest => vacRequest.Id,
