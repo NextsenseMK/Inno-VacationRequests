@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Transactions;
+using System.Xml.Linq;
 using Microsoft.Extensions.Options;
 using NS.Inno.Business.Interfaces;
 using NS.Inno.Common;
@@ -19,30 +21,18 @@ namespace NS.Inno.Business.Implementations
         public UserSystem(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            //GetUser(1);
-            //CreateUser(new User());
         }
 
         public void CreateUser(User user)
         {
             _unitOfWork.UserRepository.Insert(user);
             _unitOfWork.SaveChanges();
-
-            //var userForCreate12 = new User
-            //{
-            //    UserName = "UserName33322",
-            //    DisplayName = "DisplayName112",
-            //    EmploymentDate = DateTime.Now,
-            //    Role = UserRoleEnum.Administrator
-            //};
-            //_unitOfWork.UserRepository.Insert(userForCreate12);
-            //_unitOfWork.SaveChanges();
-
         }
 
         public void Updateuser(User user)
         {
-            throw new NotImplementedException();
+            _unitOfWork.UserRepository.Update(user);
+            _unitOfWork.SaveChanges();
         }
 
         public bool CheckUser(User user)
@@ -52,19 +42,17 @@ namespace NS.Inno.Business.Implementations
 
         public User GetUser(int id)
         {
-            var a = _unitOfWork.UserRepository.GetById(id);
-            return a;
-
+            return _unitOfWork.UserRepository.GetById(id);
         }
 
         public List<User> GetAllTeamLeaders()
         {
-            throw new NotImplementedException();
+            return _unitOfWork.UserRepository.Query().Where(x => x.Role == UserRoleEnum.TeamLeader).ToList();
         }
 
         public List<Team> GetTeamsWhereThisUserIsTeamLead(User user)
         {
-            throw new NotImplementedException();
+             return _unitOfWork.TeamRepository.Query().Where(x => x.Id == user.Team.Id && user.Role == UserRoleEnum.TeamLeader).ToList();
         }
     }
 }
